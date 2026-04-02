@@ -37,3 +37,27 @@
   from { opacity: 1; }
   to   { opacity: 0; }
 }
+
+#intro-emoji {
+  display: inline-block;
+  margin-left: 4px;
+  transform-origin: 70% 80%;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  color: rgba(255, 255, 255, 0.95);  /* ← agrega esta línea */
+}
+
+@keyframes wave-hand {
+  0%   { transform: rotate(0deg)  scale(1); }
+  10%  { transform: rotate(20deg) scale(1); }
+  25%  { transform: rotate(-8deg) scale(1); }
+  40%  { transform: rotate(20deg) scale(1); }
+  55%  { transform: rotate(-4deg) scale(1); }
+  70%  { transform: rotate(14deg) scale(1); }
+  100% { transform: rotate(0deg)  scale(1); }
+}
+
+#intro-emoji.waving {
+  animation: wave-hand 1.2s ease-in-out forwards;
+}
