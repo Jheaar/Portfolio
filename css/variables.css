@@ -1,0 +1,45 @@
+/* ============================================================
+   variables.css — Design tokens
+   Cambia aquí los colores para cambiar todo el sitio.
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --bg:        #0f1117;
+  --surface:   #161b27;
+  --nav-bg:    rgba(15, 17, 23, 0.88);
+
+  /* Accent (orange) */
+  --accent:    #f97316;
+  --accent-lo: #f9731612;
+  --pill-bg:   rgba(249, 115, 22, 0.1);
+  --pill-text: #ffb380;
+
+  /* Text scale */
+  --text:      #ccd6f6;
+  --text-dim:  #8892b0;
+  --text-lo:   #495670;
+
+  /* Border */
+  --border:    #1e2538;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-dim);
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}

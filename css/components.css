@@ -1,0 +1,295 @@
+/* ============================================================
+   components.css — About, Experience, Projects, Skills, Footer
+   ============================================================ */
+
+/* ── About ── */
+#about p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+#about p strong { color: var(--text); font-weight: 500; }
+#about p a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(249, 115, 22, 0.45);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+#about p a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Experience ── */
+.exp-list { display: flex; flex-direction: column; gap: 2px; }
+
+.exp-card {
+  padding: 22px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: background 0.25s, border-color 0.25s;
+  cursor: default;
+}
+.exp-card:hover { background: var(--surface); border-color: var(--border); }
+.exp-card:hover .exp-company { color: var(--accent); }
+
+.exp-header {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.exp-dates {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--text-lo);
+  padding-top: 3px;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.exp-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.exp-title svg { width: 13px; height: 13px; stroke: var(--accent); opacity: 0.7; }
+
+.exp-company {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  transition: color 0.2s;
+}
+
+.exp-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.exp-desc ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.exp-desc ul li { position: relative; padding-left: 18px; }
+.exp-desc ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 10px;
+  top: 5px;
+}
+
+/* Pills compartidos */
+.pill-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.pill {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  padding: 4px 13px;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  border-radius: 100px;
+}
+
+.resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: gap 0.2s, color 0.2s;
+}
+.resume-link:hover { color: var(--accent); gap: 14px; }
+.resume-link svg { width: 15px; height: 15px; stroke: currentColor; }
+
+/* ── Projects ── */
+.proj-list { display: flex; flex-direction: column; gap: 2px; }
+
+.proj-card {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 22px;
+  transition: background 0.25s, border-color 0.25s;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.proj-card:hover { background: var(--surface); border-color: var(--border); }
+
+.proj-thumb {
+  width: 108px;
+  height: 68px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.proj-thumb-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  color: var(--accent);
+  text-align: center;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+.proj-thumb-label.dim { color: var(--text-lo); }
+
+.proj-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  transition: color 0.2s;
+}
+.proj-card:hover .proj-title { color: var(--accent); }
+.proj-title svg { width: 13px; height: 13px; stroke: currentColor; opacity: 0.7; flex-shrink: 0; }
+
+.proj-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--text-lo);
+  background: var(--surface);
+  padding: 2px 9px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-weight: 400;
+}
+
+.proj-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 860px) {
+  .exp-header,
+  .proj-card { grid-template-columns: 1fr; }
+  .proj-thumb { width: 100%; height: 120px; }
+}
+
+/* ── Skills ── */
+.skill-legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--text-lo);
+  flex-wrap: wrap;
+}
+.skill-legend-item { display: flex; align-items: center; gap: 6px; }
+.skill-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.skill-legend-dot.d3 { background: var(--accent); }
+.skill-legend-dot.d2 { background: rgba(249, 115, 22, 0.45); }
+
+.skills-block { display: flex; flex-direction: column; gap: 28px; }
+
+.skill-group-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+  margin-bottom: 12px;
+}
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 9px; }
+
+.skill-pill {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  cursor: default;
+  position: relative;
+}
+.skill-pill:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--accent-lo);
+}
+
+/* Punto de nivel */
+.skill-pill::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  right: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.skill-pill[data-level="3"]::after { background: var(--accent); }
+.skill-pill[data-level="2"]::after { background: rgba(249, 115, 22, 0.45); }
+
+/* ── Footer ── */
+.footer-note {
+  font-size: 13px;
+  color: var(--text-lo);
+  line-height: 1.7;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.footer-note a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+.footer-note a:hover { color: var(--accent); }
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.up { opacity: 1; transform: none; }
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.whatsapp-btn svg {
+  width: 26px;
+  height: 26px;
+}

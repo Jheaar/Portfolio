@@ -1,0 +1,151 @@
+/* ============================================================
+   layout.css — Estructura de dos columnas (sidebar + content)
+   ============================================================ */
+
+/* Spotlight del cursor */
+.spotlight {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Contenedor principal */
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Sidebar izquierda (fija) ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 100px 48px 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -1.5px;
+  line-height: 1.08;
+  margin-bottom: 14px;
+}
+.name a { text-decoration: none; color: inherit; }
+
+.role {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.tagline {
+  font-size: 15px;
+  color: var(--text-dim);
+  max-width: 290px;
+  line-height: 1.75;
+}
+
+/* ── Navegación vertical ── */
+.nav {
+  margin-top: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--text-lo);
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 0;
+  transition: color 0.2s;
+  width: fit-content;
+}
+
+.nav-item::before {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s ease, background 0.2s;
+  flex-shrink: 0;
+}
+
+.nav-item:hover,
+.nav-item.active { color: var(--text); }
+
+.nav-item:hover::before,
+.nav-item.active::before { width: 58px; background: var(--accent); }
+
+/* ── Iconos sociales ── */
+.social {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.social a {
+  color: var(--text-lo);
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.social a:hover { color: var(--accent); transform: translateY(-2px); }
+.social a svg { width: 20px; height: 20px; }
+
+/* ── Contenido scrolleable (derecha) ── */
+.content {
+  padding: 100px 56px 100px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+/* Label de sección sticky */
+.section-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 36px;
+  position: sticky;
+  top: 0;
+  padding: 18px 0 14px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Responsive (móvil) ── */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar {
+    position: relative;
+    height: auto;
+    padding: 60px 24px 40px;
+  }
+  .nav { display: none; }
+  .content { padding: 40px 24px 80px; gap: 80px; }
+  body { font-size: 16px; }
+}

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arnold Ochoa — Analista de Datos. Portfolio profesional con experiencia en Python, SQL, Power BI y automatización.">
+  <title>Arnold Ochoa — Analista de Datos</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Estilos (orden importa: variables → layout → componentes → intro) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/intro.css">
+</head>
+<body>
+
+  <a href="https://wa.me/51998505497?text=Hola%20Arnold,%20vi%20tu%20portafolio."
+   class="whatsapp-btn" 
+   target="_blank" 
+   aria-label="WhatsApp">
+   
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.52 3.48A11.8 11.8 0 0 0 12.01 0C5.39 0 .02 5.36.02 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.17-1.62a11.93 11.93 0 0 0 5.84 1.49h.01c6.62 0 11.99-5.36 11.99-11.98 0-3.2-1.25-6.2-3.49-8.41zM12.02 21.5h-.01a9.5 9.5 0 0 1-4.84-1.32l-.35-.2-3.66.96.98-3.57-.23-.37a9.44 9.44 0 0 1-1.45-5.02c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.71 2.78a9.43 9.43 0 0 1 2.78 6.71c0 5.23-4.26 9.49-9.5 9.49zm5.2-7.09c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.52-.44-.45-.61-.46l-.52-.01c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.67 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.11-.25-.18-.53-.32z"/>
+  </svg>
+
+  </a>
+  
+  <!-- Spotlight del cursor (controlado por JS) -->
+  <div class="spotlight" id="spotlight"></div>
+
+  <!-- Canvas de partículas — corre SIEMPRE (intro + portfolio) -->
+  <canvas id="particles-bg" style="position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;"></canvas>
+
+  <!-- ══ INTRO OVERLAY ══ -->
+  <div id="intro-overlay">
+    <div id="intro-text-wrap">
+      <span id="typed-text"></span><span id="cursor-el">_</span>
+    </div>
+  </div>
+
+  <!-- ══ PORTFOLIO ══ -->
+  <div class="layout">
+
+    <!-- ── Sidebar izquierda (sticky) ── -->
+    <aside class="sidebar">
+      <div>
+        <h1 class="name"><a href="#">Arnold Ochoa</a></h1>
+        <p class="role">Analista de Datos</p>
+        <p class="tagline">Construyo pipelines confiables, automatizaciones que escalan y dashboards que informan decisiones reales.</p>
+
+        <nav class="nav">
+          <a href="#about"      class="nav-item active" data-section="about">Sobre mí</a>
+          <a href="#experience" class="nav-item"         data-section="experience">Experiencia</a>
+          <a href="#projects"   class="nav-item"         data-section="projects">Proyectos</a>
+          <a href="#skills"     class="nav-item"         data-section="skills">Skills</a>
+        </nav>
+      </div>
+
+      <div class="social">
+        <a href="https://linkedin.com/in/arnold-ochoa/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="https://github.com/Jheaar" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+        <a href="mailto:arnoldochoa2001@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </a>
+        <a href="tel:+51998505497" aria-label="Teléfono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ── Contenido scrolleable (derecha) ── -->
+    <main class="content">
+
+      <!-- SOBRE MÍ -->
+      <section id="about">
+        <div class="section-label">Sobre mí</div>
+        <div class="reveal">
+          <p>
+            Soy <strong>Analista de Datos</strong> y estudiante de último año de
+            <strong>Ingeniería de Sistemas en la UNMSM</strong> (Tercio Superior),
+            con experiencia real construyendo pipelines, dashboards y automatizaciones
+            en producción en <strong>Claro Perú</strong>.
+          </p>
+          <p>
+            Me apasiona el punto donde los datos dejan de ser ruido y se convierten en
+            decisiones. Para eso construyo sistemas <strong>limpios, escalables y bien
+            documentados</strong> — no solo scripts que funcionan hoy, sino arquitecturas
+            que sobreviven al tiempo y al equipo.
+          </p>
+          <p>
+            Actualmente profundizando en <strong>Data Engineering</strong>: orquestación
+            con <a href="#">Airflow</a>, automatización de pipelines y procesamiento de datos con Python y SQL.
+          </p>
+          <p>
+            Fuera de los datos me encuentras enseñando programación a principiantes,
+            experimentando con automatizaciones en <a href="#">n8n</a>, o buscando
+            el próximo problema que valga la pena resolver.
+          </p>
+        </div>
+      </section>
+
+      <!-- EXPERIENCIA -->
+      <section id="experience">
+        <div class="section-label">Experiencia</div>
+        <div class="exp-list">
+          <div class="exp-card reveal">
+            <div class="exp-header">
+              <span class="exp-dates">Dic 2024 —<br>Ene 2026</span>
+              <div>
+                <div class="exp-title">
+                  Practicante — Analista de Datos
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                  </svg>
+                </div>
+                <div class="exp-company">Claro Perú · Squad Ventas Móviles · La Victoria, Lima</div>
+                <div class="exp-desc">
+                  <ul>
+                    <li>Desarrollé <strong>3 dashboards en Power BI</strong> con visibilidad diaria sobre 20+ métricas críticas para 10 usuarios de 4 áreas — contribuyendo a una mejora del <strong>4%</strong> en los indicadores monitoreados.</li>
+                    <li>Escalé la arquitectura de reportes para integrar <strong>3 nuevos canales de venta</strong>, logrando un aumento del <strong>15% de eficiencia</strong> por detección de malas prácticas.</li>
+                    <li>Implementé flujos en <strong>Power Automate</strong> que redujeron tiempos operativos de horas a minutos, eliminando intervención manual en reportería.</li>
+                    <li>Automaticé generación de bases y carga en plataformas con <strong>Selenium</strong>, liberando <strong>15 horas semanales</strong> para análisis de mayor impacto.</li>
+                    <li>Refactoricé queries heredadas post-migración, mejorando legibilidad y facilitando el mantenimiento por otros equipos.</li>
+                  </ul>
+                </div>
+                <div class="pill-row">
+                  <span class="pill">Power BI</span>
+                  <span class="pill">DAX</span>
+                  <span class="pill">Python</span>
+                  <span class="pill">SQL</span>
+                  <span class="pill">Power Automate</span>
+                  <span class="pill">Selenium</span>
+                  <span class="pill">Airflow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="assets\files\CV-ArnoldOchoa-AnalistaDatos.pdf" download class="resume-link reveal">
+          Descargar CV completo
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section id="projects">
+        <div class="section-label">Proyectos</div>
+        <div class="proj-list">
+
+          <!-- Alzheimer Predictor -->
+          <a href="https://alzheimer-disease-web.vercel.app/" target="_blank" rel="noopener" class="proj-card reveal">
+            <div class="proj-thumb" style="padding:0;overflow:hidden;">
+              <img src="assets/images/alzheimer-preview.jpg" alt="Alzheimer Disease Predictor" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
+            </div>
+            <div>
+              <div class="proj-title">
+                Alzheimer Disease Predictor
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </div>
+              <p class="proj-desc">
+                Aplicación web de machine learning para predicción de Alzheimer a partir de datos clínicos.
+                Incluye preprocesamiento, modelo de clasificación con Scikit-learn y visualización de resultados.
+                Desplegado en producción con Vercel.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Python</span>
+                <span class="pill">Scikit-learn</span>
+                <span class="pill">Pandas</span>
+                <span class="pill">Vercel</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Agente Telegram con n8n -->
+          <div class="proj-card reveal" style="cursor:default;">
+            <div class="proj-thumb" style="padding:0;overflow:hidden;">
+              <img src="assets/images/n8n-telegram.jpg" alt="Agente conversacional Telegram n8n" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <div>
+              <div class="proj-title">Agente conversacional en Telegram con n8n</div>
+              <p class="proj-desc">
+                Flujo de automatización local en <strong>n8n</strong> que recibía mensajes de Telegram
+                vía webhook (tunelizado con <strong>ngrok</strong>), los procesaba con
+                <strong>Google Gemini</strong> como modelo de lenguaje, y respondía consultas o registraba
+                información a través de una API. Memoria persistente en <strong>PostgreSQL</strong>
+                y dos sub-agentes: consultas y ventas. Pausado por límite de tokens de Gemini.
+              </p>
+              <div class="pill-row">
+                <span class="pill">n8n</span>
+                <span class="pill">Google Gemini</span>
+                <span class="pill">PostgreSQL</span>
+                <span class="pill">Telegram API</span>
+                <span class="pill">Webhooks</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WIP -->
+          <div class="proj-card reveal" style="cursor:default;opacity:0.65;">
+            <div class="proj-thumb">
+              <div class="proj-thumb-label dim">PROYECTO<br>CENSURADO</div>
+            </div>
+            <div>
+              <div class="proj-title" style="color:var(--text-dim);">
+                Dashboard analítico — Ventas Moviles, Fijas, Renovaciones, Migraciones y Upgrades
+                <span class="proj-badge">Proyecto Censurado por motivos de seguridad</span>
+              </div>
+              <p class="proj-desc">Dashboard de métricas comerciales con Power BI, modelado DAX y conexión a base de datos Oracle.</p>
+              <div class="pill-row">
+                <span class="pill">Power BI</span>
+                <span class="pill">DAX</span>
+                <span class="pill">Oracle</span>
+                <span class="pill">SQL</span>
+                <span class="pill">Power Automate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card reveal" style="cursor:default;opacity:0.65;">
+            <div class="proj-thumb">
+              <div class="proj-thumb-label dim">PROYECTO<br>CENSURADO</div>
+            </div>
+            <div>
+              <div class="proj-title" style="color:var(--text-dim);">
+                Dashboard analítico — Monitoreo de metricas del marcador
+                <span class="proj-badge">Proyecto Censurado por motivos de seguridad</span>
+              </div>
+              <p class="proj-desc">Dashboard de rendimiento operativo en Power BI, con modelado DAX para el análisis de marcaciones, contactos y tiempos de gestión de asesores conectados.</p>
+              <div class="pill-row">
+                <span class="pill">Power BI</span>
+                <span class="pill">DAX</span>
+                <span class="pill">Oracle</span>
+                <span class="pill">SQL</span>
+                <span class="pill">Power Automate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card reveal" style="cursor:default;opacity:0.65;">
+            <div class="proj-thumb">
+              <div class="proj-thumb-label dim">PROYECTO<br>CENSURADO</div>
+            </div>
+            <div>
+              <div class="proj-title" style="color:var(--text-dim);">
+                Dashboard analítico — TNPS Outbound Movil y Fija
+                <span class="proj-badge">Proyecto Censurado por motivos de seguridad</span>
+              </div>
+              <p class="proj-desc">Dashboard de rendimiento operativo en Power BI, con modelado DAX para el análisis de resultados de encuestas de satisfacción.</p>
+              <div class="pill-row">
+                <span class="pill">Power BI</span>
+                <span class="pill">DAX</span>
+                <span class="pill">Oracle</span>
+                <span class="pill">SQL</span>
+                <span class="pill">Power Automate</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-label">Skills</div>
+        <div class="skill-legend">
+          <span style="color:var(--text-dim);font-size:11px;margin-right:4px;">nivel:</span>
+          <span class="skill-legend-item"><span class="skill-legend-dot d3"></span>avanzado</span>
+          <span class="skill-legend-item"><span class="skill-legend-dot d2"></span>intermedio</span>
+        </div>
+        <div class="skills-block reveal">
+
+          <div>
+            <div class="skill-group-title">Lenguajes</div>
+            <div class="skill-pills">
+              <span class="skill-pill" data-level="3">Python</span>
+              <span class="skill-pill" data-level="3">SQL</span>
+              <span class="skill-pill" data-level="2">DAX</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Análisis & Visualización</div>
+            <div class="skill-pills">
+              <span class="skill-pill" data-level="3">Power BI</span>
+              <span class="skill-pill" data-level="3">Pandas</span>
+              <span class="skill-pill" data-level="3">NumPy</span>
+              <span class="skill-pill" data-level="3">Matplotlib</span>
+              <span class="skill-pill" data-level="3">Seaborn</span>
+              <span class="skill-pill" data-level="2">Excel</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Machine Learning</div>
+            <div class="skill-pills">
+              <span class="skill-pill" data-level="3">Scikit-learn</span>
+              <span class="skill-pill" data-level="3">Clasificación</span>
+              <span class="skill-pill" data-level="3">Regresión</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Automatización & Orquestación</div>
+            <div class="skill-pills">
+              <span class="skill-pill" data-level="3">Power Automate</span>
+              <span class="skill-pill" data-level="2">Apache Airflow</span>
+              <span class="skill-pill" data-level="2">n8n</span>
+              <span class="skill-pill" data-level="2">Selenium</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Bases de datos & Entornos</div>
+            <div class="skill-pills">
+              <span class="skill-pill" data-level="3">Oracle DB</span>
+              <span class="skill-pill" data-level="3">PostgreSQL</span>
+              <span class="skill-pill" data-level="2">Git</span>
+              <span class="skill-pill" data-level="2">Linux</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="footer-note">
+          Diseñado y construido por Arnold Ochoa · Lima, Perú ·
+          <a href="mailto:arnoldochoa2001@gmail.com">arnoldochoa2001@gmail.com</a> ·
+          <a href="tel:+51998505497">+51 998 505 497</a>
+        </p>
+      </footer>
+
+    </main>
+  </div><!-- /.layout -->
+
+  <!-- ══ Scripts ══
+       Orden: partículas primero (empiezan inmediatamente),
+       luego intro (overlay sobre las partículas),
+       luego main (spotlight, nav, reveal).
+  -->
+  <script src="js/particles.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

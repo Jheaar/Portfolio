@@ -1,0 +1,39 @@
+/* ============================================================
+   intro.css — Overlay de bienvenida + cursor parpadeante
+   ============================================================ */
+
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0f1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#intro-text-wrap {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0);
+  letter-spacing: -1px;
+  white-space: nowrap;
+  text-align: center;
+  transition: color 0.6s ease;
+  position: relative;
+  z-index: 2;
+}
+
+#cursor-el {
+  margin-left: 2px;
+  display: inline-block;
+  color: rgba(249, 115, 22, 0.9);
+  animation: cur-blink 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes cur-blink {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
